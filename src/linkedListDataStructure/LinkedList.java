@@ -5,32 +5,49 @@ public class LinkedList<T> {
 	//Creating a Linked List Structure
 	Node head;
 	
-	public class Node{
-		public T data;
-		public Node next;
+	class Node{
+		T data;
+		Node next;
 		
 		//constructor
-		public Node(){
+		Node(){
 			data=null;
 			next=null;
 		}
 		
-		public Node(T d){
+		Node(T d){
 			data=d;
 			next=null;
 		}
 	}
 	
+//	public Node head;
+//	
+//	public class Node{
+//		public T data;
+//		public Node next;
+//		
+//		//constructor
+//		public Node(){
+//			data=null;
+//			next=null;
+//		}
+//		
+//		public Node(T d){
+//			data=d;
+//			next=null;
+//		}
+//	}
+	
 	//constructor
-	public LinkedList(){
+	LinkedList(){
 		head = new Node();
 	}
 	
 	//Method to maintain the collection to be defined
-}
-
-class JLinkedList{
+	
+	//---------------------------------
 	public static void main(String[] args) {
-	//call all the method create in class	
-	}
+		//call all the method create in class	
+		}
 }
