@@ -1,6 +1,6 @@
 package linkedListDataStructure.singleLinkedList.insertionOperation;
 
-public class SingleLinkedListInsertion<T> {
+class SingleLinkedListInsertion<T> {
 	
 	//---------------If we define class Node in this program then------------------------
 	/*below class Node does not need to create repeated
@@ -39,6 +39,8 @@ public class SingleLinkedListInsertion<T> {
 			//Make the newNode as the firstNode
 			this.head.next = newNode;
 		}
+		
+		//--------------Insertion
 }
 
 class SingleLinkedListInsertionOperation{
