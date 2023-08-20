@@ -5,24 +5,24 @@ public class LinkedList<T> {
 	//Creating a Linked List Structure
 	Node head;
 	
-	class Node{
-		T data;
-		Node next;
+	public class Node{
+		public T data;
+		public Node next;
 		
 		//constructor
-		Node(){
+		public Node(){
 			data=null;
 			next=null;
 		}
 		
-		Node(T d){
+		public Node(T d){
 			data=d;
 			next=null;
 		}
 	}
 	
 	//constructor
-	LinkedList(){
+	public LinkedList(){
 		head = new Node();
 	}
 	
@@ -31,6 +31,6 @@ public class LinkedList<T> {
 
 class JLinkedList{
 	public static void main(String[] args) {
-		
+	//call all the method create in class	
 	}
 }
