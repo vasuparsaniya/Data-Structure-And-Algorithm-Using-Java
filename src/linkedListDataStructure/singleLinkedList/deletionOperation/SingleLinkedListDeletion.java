@@ -29,7 +29,7 @@ public class SingleLinkedListDeletion<T> extends SingleLinkedListInsertion<T>{
 
 	//-------------Deletion At Front-----------------
 	
-	public T deletionFront() {
+	public T deleteFront() {
 		T x=null;
 	
 		Node temp=this.head.next;
@@ -44,7 +44,7 @@ public class SingleLinkedListDeletion<T> extends SingleLinkedListInsertion<T>{
 	}
 	
 	//----------Deletion At End-------------------
-	public T  deletionEnd() {
+	public T  deleteEnd() {
 		T x=null;
 		Node currNode=this.head.next;
 		Node prev=null;
@@ -108,6 +108,57 @@ public class SingleLinkedListDeletion<T> extends SingleLinkedListInsertion<T>{
 		}
 	}
 	
+	//--------------------Deletion at before key-------------------
+			public void deleteBeforeKey(T key) {
+				Node currNode = this.head.next;
+				Node prev1=this.head;
+				Node prev2 = null;
+				
+				if(this.head.next == null) {
+					System.out.println("List is Empty!!So deletion before key is failed..");
+				}else if(currNode.next == null){
+					System.out.println("List have Only one element.So deletion before key is not posible..");
+				}else {
+					while(currNode != null) {
+						if(currNode.data == key) {
+							if(prev2==null) {
+								System.out.println("Key is present at front of list.So deletion before that key is not posible..");
+								break;
+							}
+							prev2.next=prev1.next;
+							prev1.next=null;
+							System.out.println("Element is deleted successfully after key "+key+" "+"and deleted element is "+" "+prev1.data);
+							break;
+						}else {
+							prev2=prev1;
+							prev1=currNode;
+							currNode=currNode.next;
+							
+							if(currNode == null) {
+								System.out.println("Key is not found");
+								break;
+							}
+						}
+					}
+				}
+			}
+			
+			//----------------Delete element present in list(key is given)-----------
+			public void deleteKey(T key) {
+				Node currNode=this.head.next;
+				Node prev=this.head;
+				
+				if(this.head.next == null) {
+					System.out.println("List is Empty!!So deletion key is failed..");
+				}else {
+					while(currNode != null) {
+						if(currNode.data == key) {
+							
+						}
+					}
+				}
+			}
+	
 	
 	//----------------------------------
 	public static void main(String[] args) {
@@ -115,6 +166,11 @@ public class SingleLinkedListDeletion<T> extends SingleLinkedListInsertion<T>{
 		SingleLinkedListDeletion<Integer> list=new SingleLinkedListDeletion<>();
 //		
 		list.insertFront(2);
+		list.insertFront(27);
+		list.insertFront(26);
+		list.insertFront(25);
+		list.insertFront(23);
+
 		list.insertFront(4);
 
 		list.printLinkedList();
@@ -122,18 +178,21 @@ public class SingleLinkedListDeletion<T> extends SingleLinkedListInsertion<T>{
 		list.insertEnd(6);
 		list.printLinkedList();
 
-//		list.deletionFront();
+//		list.deleteFront();
 //		list.printLinkedList();
-//		list.deletionFront();
+//		list.deleteFront();
 //		list.printLinkedList();
-//		list.deletionFront();
+//		list.deleteFront();
 //		list.printLinkedList();
-//		list.deletionFront();
+//		list.deleteFront();
 //		list.printLinkedList();
-//		list.deletionEnd();
+//		list.deleteEnd();
 //		list.printLinkedList();
 		
-		list.deleteAfterKey(6);
+//		list.deleteAfterKey(2);
+//		list.printLinkedList();
+
+		list.deleteBeforeKey(6);
 		list.printLinkedList();
 	}
 }
