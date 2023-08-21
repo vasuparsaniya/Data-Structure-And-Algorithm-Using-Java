@@ -27,12 +27,11 @@ public class SingleLinkedListDeletion<T> extends SingleLinkedListInsertion<T>{
 	
 	//-----------------Methods for deletion operation---------------
 
-	//-------------Deletion At Front-----------------
-	
+	//-------------Deletion At Front-----------------  
 	public T deleteFront() {
 		T x=null;
-	
 		Node temp=this.head.next;
+		
 		if(temp!=null) {
 			x=temp.data;
 			head.next=temp.next;
@@ -77,6 +76,12 @@ public class SingleLinkedListDeletion<T> extends SingleLinkedListInsertion<T>{
 	//Case:-2 If key is present then delete After that key
 	//Case:-3 If key is present then delete Before that key
 	
+	//In the deletion After Key
+	/*-->First check list is empty or not
+	 * -->If list is not empty search the key
+	 * -->If key is found then delete after that key
+	 * -->If key found at the end of list then deletion after that key is not possible
+	 * -->If key is not found then print message*/
 	public void deleteAfterKey(T key) {
 		Node currNode=this.head.next;
 		Node temp=currNode.next;
@@ -109,6 +114,12 @@ public class SingleLinkedListDeletion<T> extends SingleLinkedListInsertion<T>{
 	}
 	
 	//--------------------Deletion at before key-------------------
+	/*-->In the deletion before key 
+	 * -->Check list is empty or not 
+	 * -->If list is not empty then search the key in the list 
+	 * -->If key is found then delete before that key
+	 * -->If key is found as first element of the list then deletion before that key is not possible
+	 * -->If key is not found then show message.*/
 			public void deleteBeforeKey(T key) {
 				Node currNode = this.head.next;
 				Node prev1=this.head;
@@ -141,9 +152,10 @@ public class SingleLinkedListDeletion<T> extends SingleLinkedListInsertion<T>{
 						}
 					}
 				}
-			}
+			} 
 			
 			//----------------Delete element present in list(key is given)-----------
+			
 			public void deleteKey(T key) {
 				Node currNode=this.head.next;
 				Node prev=this.head;
@@ -153,7 +165,18 @@ public class SingleLinkedListDeletion<T> extends SingleLinkedListInsertion<T>{
 				}else {
 					while(currNode != null) {
 						if(currNode.data == key) {
+							prev.next=currNode.next;
+							currNode.next=null;
+							System.out.println("Element is deleted successfully after key "+key+" "+"and deleted element is "+" "+currNode.data);
+							break;
+						}else {
+							prev=prev.next;
+							currNode=currNode.next;
 							
+							if(currNode == null) {
+								System.out.println("Key is not found..");
+								break;
+							}
 						}
 					}
 				}
@@ -192,7 +215,10 @@ public class SingleLinkedListDeletion<T> extends SingleLinkedListInsertion<T>{
 //		list.deleteAfterKey(2);
 //		list.printLinkedList();
 
-		list.deleteBeforeKey(6);
+//		list.deleteBeforeKey(6);
+//		list.printLinkedList();
+		
+		list.deleteKey(4);
 		list.printLinkedList();
 	}
 }
