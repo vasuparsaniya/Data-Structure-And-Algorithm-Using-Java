@@ -108,10 +108,12 @@ public class MergeLinkedList<T> extends SingleLinkedListInsertion<T> {
 		 * -->If key is present then
 		 * -->If key is present at Front of the first list then First sent link of last node of second list with first node of first list
 		 * -->then head of first node is set with first node of second list
-		 * -->If key is present at End of the first list then set then link of last node of the first list with first lnode of second list
-		 * -->If key is present any other place of the fist list then 
-		 * -->First set the link of last node of the second list with after key present in the first list
-		 * -->Then set the link of key present node in the fist list with the first node in the second list
+		 * -->If key is present at End of the first list 
+		 * -->We take two node l1Node and l1NodePrev 
+		 * -->First set the link of last node of second list with l1Node
+		 * -->then set the link of l1NodePrex->next with first node of the second list
+		 * -->If key is present other place then first set the link of the last node of the second list with l1Node
+		 * -->and l1NodePrev->next set with the first node of the second list 
 		 * -->Make head free from memory of the second list
 		 * -->If key is not present then print message.*/
 	
@@ -146,7 +148,6 @@ public class MergeLinkedList<T> extends SingleLinkedListInsertion<T> {
 				}
 			}
 		}
-		
 	}
 	
 	public static void main(String[] args) {
