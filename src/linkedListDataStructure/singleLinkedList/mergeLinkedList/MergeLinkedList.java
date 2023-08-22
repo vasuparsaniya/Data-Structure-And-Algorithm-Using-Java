@@ -78,7 +78,7 @@ public class MergeLinkedList<T> extends SingleLinkedListInsertion<T> {
 			while(l2Node.next != null) {
 				l2Node=l2Node.next;
 			}
-			while(l1Node.next != null) {	
+			while(l1Node != null) {	
 				if(l1Node.data == key) {
 						l2Node.next=l1Node.next;
 						l1Node.next=l2.head.next;
@@ -88,17 +88,16 @@ public class MergeLinkedList<T> extends SingleLinkedListInsertion<T> {
 				}else {
 					l1Node=l1Node.next;
 					
-					if(l1Node.next == null && l1Node.data == key) {   //check that key is present at end or not
-						l1Node.next=l2.head.next;
-						l2.head.next=null;  //free the head of second list
-						System.out.println("Linked List merge successfully!!Key is present at the end of first list");
-						break;
-					}
-					
 					if(l1Node.next == null && l1Node.data != key) {   //check that l1Node is present at end still key is not found
 						System.out.println("Key is not found!!");
 						break;
 					}
+//					if(l1Node.next == null && l1Node.data == key) {   //check that key is present at end or not
+//						l1Node.next=l2.head.next;
+//						l2.head.next=null;  //free the head of second list
+//						System.out.println("Linked List merge successfully!!Key is present at the end of first list");
+//						break;
+//					}
 				}
 			}
 		}
@@ -115,6 +114,40 @@ public class MergeLinkedList<T> extends SingleLinkedListInsertion<T> {
 		 * -->Then set the link of key present node in the fist list with the first node in the second list
 		 * -->Make head free from memory of the second list
 		 * -->If key is not present then print message.*/
+	
+	public void mergeBeforeKey(MergeLinkedList<T> l2, T key) {
+		Node l1Node = this.head;
+		Node l1NodePrev = null;
+		Node l2Node = l2.head;
+		
+		if(l1Node.next == null || l2Node.next == null) {
+			System.out.println("List is Empty!!Linked List Merge Before key is not posible..");
+		}else {
+			while(l2Node.next != null) {
+				l2Node=l2Node.next;
+			}
+			
+			while(l1Node != null) {
+				if(l1Node.data == key) {
+					l2Node.next=l1Node;
+					l1NodePrev.next=l2.head.next;
+					l2.head.next=null;
+					System.out.println("Link List Merge Successfully..");
+					break;
+				}else {
+					
+					l1NodePrev = l1Node;
+					l1Node=l1Node.next;
+					
+					if(l1Node.next == null && l1Node.data != key) {  //here we check that last node still does not have key 
+						System.out.println("Key is not Found");
+						break;
+					}
+				}
+			}
+		}
+		
+	}
 	
 	public static void main(String[] args) {
 		MergeLinkedList<Integer> list1=new MergeLinkedList<Integer>();
@@ -138,7 +171,10 @@ public class MergeLinkedList<T> extends SingleLinkedListInsertion<T> {
 //		list1.mergeLinkedListAtFront(list2);
 //		list1.printLinkedList();
 		
-		list1.mergeAterKey(list2,2);
+//		list1.mergeAterKey(list2,2);
+//		list1.printLinkedList();
+		
+		list1.mergeBeforeKey(list2,2);
 		list1.printLinkedList();
 	}
 }
