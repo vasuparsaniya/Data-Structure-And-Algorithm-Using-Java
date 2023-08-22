@@ -21,7 +21,7 @@ public class SingleLinkedListDeletion<T> extends SingleLinkedListInsertion<T>{
 //	}
 //	
 	public SingleLinkedListDeletion(){
-		super();
+		super();    //super class (SingleLinkedListInsertion) default constructor call here
 //		head=new Node();
 	}
 	
@@ -82,6 +82,7 @@ public class SingleLinkedListDeletion<T> extends SingleLinkedListInsertion<T>{
 	 * -->If key is found then delete after that key
 	 * -->If key found at the end of list then deletion after that key is not possible
 	 * -->If key is not found then print message*/
+	
 	public void deleteAfterKey(T key) {
 		Node currNode=this.head.next;
 		Node temp=currNode.next;
