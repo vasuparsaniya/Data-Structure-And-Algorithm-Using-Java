@@ -132,5 +132,4 @@ public class DoubleLinkedListInsertion<T> {
 		list.printLinkedList();
 		list.printLinkedListInPrev();
 	}
-
 }
